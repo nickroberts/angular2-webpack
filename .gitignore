@@ -1,0 +1,16 @@
+# compiled output
+/dist
+
+# dependencies
+/node_modules
+/bower_components
+
+# IDEs and editors
+/.vscode
+
+# misc
+npm-debug.log
+/typings
+
+# System Files
+.DS_Store
