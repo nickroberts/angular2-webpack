@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file?name=assets/[name].[hash].[ext]'
+        loader: 'file?name=public/[name].[hash].[ext]'
       },
       {
         test   : /\.css$/,
@@ -43,9 +43,13 @@ module.exports = {
   },
 
   plugins: [
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: ['app', 'vendor', 'polyfills']
+    // }),
+
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'polyfills'],
-      minChunks: 2
+      filename: "commons.js",
+      names: ["polyfills", 'vendor']
     }),
 
     new HtmlWebpackPlugin({

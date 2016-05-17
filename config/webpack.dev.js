@@ -8,8 +8,8 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-eval-source-map',
 
   entry: {
-    polyfills: './src/client/polyfills.ts',
-    vendor: './src/client/vendor.ts',
+    polyfills: ['./src/client/polyfills.ts', hotMiddlewareScript],
+    vendor: ['./src/client/vendor.ts', hotMiddlewareScript],
     app: ['./src/client/main.ts', hotMiddlewareScript]
   },
 
