@@ -14,8 +14,6 @@ module.exports = {
     extensions: ['', '.js', '.ts']
   },
 
-  devtool: 'source-map',
-
   module: {
     loaders: [
       {
@@ -31,9 +29,17 @@ module.exports = {
         loader: 'file?name=assets/[name].[hash].[ext]'
       },
       {
-        test: /\.scss$/,
-        loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
-      }
+        test   : /\.css$/,
+        loaders: ['style', 'css?sourceMap']
+      },
+      {
+        test: /^(?!.*component).*\.scss$/,
+        loaders: ['style', 'css', 'sass?sourceMap']
+      },
+      {
+        test: /\.component\.scss$/,
+        loaders: ['raw', 'sass?sourceMap']
+      },
     ]
   },
 
