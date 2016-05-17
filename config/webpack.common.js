@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 
 module.exports = {
@@ -11,7 +10,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.ts']
+    extensions: ['', '.js', '.ts', 'scss']
   },
 
   module: {
@@ -45,7 +44,8 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
+      names: ['vendor', 'polyfills'],
+      minChunks: 2
     }),
 
     new HtmlWebpackPlugin({
