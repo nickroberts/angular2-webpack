@@ -14,7 +14,7 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   output: {
-    path: helpers.root('dist'),
+    path: __dirname,
     publicPath: '/',
     filename: '[name].js',
     sourceMapFilename: '[name].map',
